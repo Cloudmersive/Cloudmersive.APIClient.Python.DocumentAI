@@ -1,10 +1,10 @@
 ﻿Remove-Item –path ./cloudmersive_cdr_api_client –recurse
 
-Invoke-WebRequest -Uri 'https://api.cloudmersive.com/cdr/docs/v1/swagger' -OutFile '.\cdr-api-swagger.json'
-(Get-Content .\cdr-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\cdr-api-swagger.json
-(Get-Content .\cdr-api-swagger.json -Raw) -replace '"http"','"https"' | Set-Content .\cdr-api-swagger.json -Encoding UTF8
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/document-ai/docs/v1/swagger' -OutFile '.\documentai-api-swagger.json'
+(Get-Content .\documentai-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\documentai-api-swagger.json
+(Get-Content .\documentai-api-swagger.json -Raw) -replace '"http"','"https"' | Set-Content .\documentai-api-swagger.json -Encoding UTF8
 
-& java -jar swagger-codegen-cli-2.4.14.jar generate -i .\cdr-api-swagger.json -l python -c packageconfig.json
+& java -jar swagger-codegen-cli-2.4.14.jar generate -i .\documentai-api-swagger.json -l python -c packageconfig.json
 #(Get-Content ./client/package.json).replace('v1', '1.0.1') | Set-Content ./client/package.json
 
 # Bug fix
