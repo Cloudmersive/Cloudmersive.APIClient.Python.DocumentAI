@@ -1,10 +1,10 @@
 # cloudmersive_documentai_api_client
 Use next-generation AI to extract data, fields, insights and text from documents. Instantly.
 
-This Python package provides a native API client for [Cloudmersive CDR API](https://cloudmersive.com/cdr-api)
+This Python package provides a native API client for [Cloudmersive Document AI API](https://cloudmersive.com/document-ai-api)
 
 - API version: v1
-- Package version: 3.0.1
+- Package version: 3.0.2
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
