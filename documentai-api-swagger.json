@@ -1,0 +1,995 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Document AI API",
+    "version": "v1"
+  },
+  "paths": {
+    "/document-ai/document/analyze/enforce-policy": {
+      "post": {
+        "tags": [
+          "Analyze"
+        ],
+        "summary": "Enforce Policies to a Document to allow or block it using Advanced AI",
+        "description": "Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ApplyRules",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request, including document and policy rules",
+            "schema": {
+              "$ref": "#/definitions/DocumentPolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentPolicyResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/text": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Text from a Document using AI",
+        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "operationId": "ExtractText",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractTextResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/fields": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Field Values from a Document using AI",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractFields",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "FieldNames",
+            "description": "Desired fields to extract, comma separated",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/fields/advanced": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Field Values from a Document using Advanced AI",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractFieldsAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request, including document file as byte array, and information on which fields to extract",
+            "schema": {
+              "$ref": "#/definitions/AdvancedExtractFieldsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/tables": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Tables of Data from a Document using AI",
+        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractTables",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractTablesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/barcodes": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Barcodes of from a Document using AI",
+        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractBarcodes",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractBarcodesAiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/all": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract All Fields and Tables of Data from a Document using AI",
+        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractAllFieldsAndTables",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractFieldsAndTablesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/classify": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Classification or Category from a Document using AI",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractClassification",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Categories",
+            "description": "Desired classification to extract",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentClassificationResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/extract/summary": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Summary from a Document using AI",
+        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractSummary",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SummarizeDocumentResponse"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/text": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Text from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "operationId": "ExtractTextFromDocumentBatchJob",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/fields/advanced": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Field Values from a Document using Advanced AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractFieldsFromDocumentAdvancedBatchJob",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AdvancedExtractFieldsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/all": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract All Fields and Tables of Data from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractAllFieldsAndTablesFromDocumentBatchJob",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/extract/classify": {
+      "post": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Extract Classification or Category from a Document using AI as a Batch Job",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractClassificationFromDocumentBatchJob",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Categories",
+            "description": "Desired classification to extract",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "InputFile",
+            "description": "Input document, or photos of a document, to extract data from",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentBatchJobResult"
+            }
+          }
+        }
+      }
+    },
+    "/document-ai/document/batch-job/batch-job/status": {
+      "get": {
+        "tags": [
+          "RunBatchJob"
+        ],
+        "summary": "Get the status and result of an Extract Document Batch Job",
+        "description": "Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.",
+        "operationId": "GetAsyncJobStatus",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "AsyncJobID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ExtractDocumentJobStatusResult"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AdvancedExtractFieldsRequest": {
+      "description": "Request to perform an AI field extraction on a document",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input document file to perform the operation on as a byte array",
+          "type": "string"
+        },
+        "FieldsToExtract": {
+          "description": "Fields to extract from the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldToExtract"
+          }
+        },
+        "MaximumPagesProcessed": {
+          "format": "int32",
+          "description": "Optional: Limit the number of pages processed",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentClassificationResult": {
+      "description": "Result of classifying a document using AI",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "DocumentCategoryResult": {
+          "description": "Category applied to the document; if a category could not be identified then \"other\" will be used.  Spaces are replaced with underscores.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentPolicyRequest": {
+      "description": "Request to analyze a document",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input file as a byte array",
+          "type": "string"
+        },
+        "Rules": {
+          "description": "Rules to apply to the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyRule"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentPolicyResult": {
+      "description": "Result of performing a document policy enforcement operation",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the document complies with all of the policies, and false if it does not",
+          "type": "boolean"
+        },
+        "RiskScore": {
+          "format": "double",
+          "description": "Risk score between 0.0 and 1.0 where values above 0.5 are increasing levels of risk",
+          "type": "number"
+        },
+        "RuleViolations": {
+          "description": "Policy violations",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PolicyRuleViolation"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractBarcodesAiResponse": {
+      "description": "Result of extracting barcodes from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "BarcodeResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtractedBarcodeItem"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractDocumentBatchJobResult": {
+      "description": "Result of performing a split document batch job",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobID": {
+          "description": "When creating a job, an Async Job ID is returned.  Use the GetAsyncJobStatus API to check on the status of this job using the AsyncJobID and get the result when it finishes",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractDocumentJobStatusResult": {
+      "description": "Result of performing a batch job operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation to check the status of the job was successful, false otherwise",
+          "type": "boolean"
+        },
+        "AsyncJobStatus": {
+          "description": "Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED",
+          "type": "string"
+        },
+        "AsyncJobID": {
+          "description": "Job ID",
+          "type": "string"
+        },
+        "ExtractTextResult": {
+          "$ref": "#/definitions/ExtractTextResponse"
+        },
+        "ExtractFieldsAndTablesResult": {
+          "$ref": "#/definitions/ExtractFieldsAndTablesResponse"
+        },
+        "ExtractFieldsResult": {
+          "$ref": "#/definitions/ExtractFieldsResponse"
+        },
+        "ExtractClassificationResult": {
+          "$ref": "#/definitions/DocumentClassificationResult"
+        },
+        "ErrorMessage": {
+          "description": "Error message (if any)",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractFieldsAndTablesResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "FieldResults": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        },
+        "TableResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResult"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractFieldsResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "Results": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractTablesResponse": {
+      "description": "Result of extracting tables from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "TableResults": {
+          "description": "Table value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResult"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractTextResponse": {
+      "description": "Result of extracting text from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "PageResults": {
+          "description": "Page results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExtractedTextPage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractedBarcodeItem": {
+      "description": "Extracted barcode result",
+      "type": "object",
+      "properties": {
+        "BarcodeType": {
+          "description": "Type of the barcode identified, possible values are: AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB, UNKNOWN",
+          "type": "string"
+        },
+        "BarcodeValue": {
+          "description": "Value of the barcode as a string",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExtractedTextPage": {
+      "description": "Extracted page from an input document",
+      "type": "object",
+      "properties": {
+        "PageNumber": {
+          "format": "int32",
+          "description": "Page number index, 1-based",
+          "type": "integer"
+        },
+        "TextResult": {
+          "description": "Text content of the page",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldToExtract": {
+      "description": "Field to extract from a document using AI",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field to extract",
+          "type": "string"
+        },
+        "FieldOptional": {
+          "description": "Optional: True if the field is optional, false if required (default)",
+          "type": "boolean"
+        },
+        "FieldDescription": {
+          "description": "Optional but recommended: Description of the field - use this to describe what the field is, how it is formatted, what is unique about it, etc.",
+          "type": "string"
+        },
+        "FieldExample": {
+          "description": "Optional: Example label or value of the field",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldValue": {
+      "description": "Field value result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field (note that spaces will be replaced with underscore)",
+          "type": "string"
+        },
+        "FieldStringValue": {
+          "description": "String value of the field that was extractged from the document",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PolicyRule": {
+      "type": "object",
+      "properties": {
+        "RuleId": {
+          "description": "",
+          "type": "string"
+        },
+        "RuleType": {
+          "description": "Possible values are ALLOW and DENY",
+          "type": "string"
+        },
+        "RuleDescription": {
+          "description": "Description of the rule in natural language, e.g. Do not allow documents that contain offensive language",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PolicyRuleViolation": {
+      "description": "Instances of a policy rule violation",
+      "type": "object",
+      "properties": {
+        "RuleId": {
+          "description": "ID of the rule; if no ID was supplied, the ID is the 1-based index of the rule",
+          "type": "string"
+        },
+        "RuleViolationRiskScore": {
+          "format": "double",
+          "description": "Risk score between 0.0 and 1.0 where values above 0.5 are increasing levels of risk",
+          "type": "number"
+        },
+        "RuleViolationRationale": {
+          "description": "AI natural language rationale for why this policy was violated",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SummarizeDocumentResponse": {
+      "description": "Result of summarizing a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "DocumentSummaryText": {
+          "description": "Summary of the document",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResult": {
+      "description": "Table extracted from a document",
+      "type": "object",
+      "properties": {
+        "Title": {
+          "description": "Title of the table (optional)",
+          "type": "string"
+        },
+        "Rows": {
+          "description": "Rows of the table",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResultRow"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResultCell": {
+      "description": "Cell of a row of a table extracted from a document",
+      "type": "object",
+      "properties": {
+        "CellHeader": {
+          "description": "Cell column header",
+          "type": "string"
+        },
+        "CellValue": {
+          "description": "Cell value as a string",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TableResultRow": {
+      "description": "Row of a table extracted from a document",
+      "type": "object",
+      "properties": {
+        "Cells": {
+          "description": "Cells in the row",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TableResultCell"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "Apikey": {
+      "type": "apiKey",
+      "name": "Apikey",
+      "in": "header",
+      "description": "API Key Authentication"
+    }
+  },
+  "security": [
+    {
+      "Apikey": [ ]
+    }
+  ]
+}
+
