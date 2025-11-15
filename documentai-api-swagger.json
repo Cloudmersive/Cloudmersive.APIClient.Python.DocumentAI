@@ -2,6 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "Document AI API",
+    "description": "Use next-generation AI to extract data, fields, insights and text from documents. Instantly.",
+    "termsOfService": "https://portal.cloudmersive.com/terms-of-service",
     "version": "v1"
   },
   "paths": {
@@ -339,6 +341,50 @@
         }
       }
     },
+    "/document-ai/document/extract/classify/advanced": {
+      "post": {
+        "tags": [
+          "Extract"
+        ],
+        "summary": "Extract Classification or Category from a Document using Advanced AI",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "operationId": "ExtractClassificationAdvanced",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "recognitionMode",
+            "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request to perform the classification on",
+            "schema": {
+              "$ref": "#/definitions/AdvancedExtractClassificationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentAdvancedClassificationResult"
+            }
+          }
+        }
+      }
+    },
     "/document-ai/document/extract/summary": {
       "post": {
         "tags": [
@@ -580,6 +626,30 @@
     }
   },
   "definitions": {
+    "AdvancedExtractClassificationRequest": {
+      "description": "Request to perform an AI document classification on a document",
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input document file to perform the operation on as a byte array",
+          "type": "string"
+        },
+        "Categories": {
+          "description": "Possible categories for the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentCategories"
+          }
+        },
+        "MaximumPagesProcessed": {
+          "format": "int32",
+          "description": "Optional: Limit the number of pages processed",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
     "AdvancedExtractFieldsRequest": {
       "description": "Request to perform an AI field extraction on a document",
       "type": "object",
@@ -600,6 +670,36 @@
           "format": "int32",
           "description": "Optional: Limit the number of pages processed",
           "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentAdvancedClassificationResult": {
+      "description": "Result of classifying a document using AI",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "DocumentCategoryResult": {
+          "description": "Category applied to the document; if a category could not be identified then \"other\" will be used.  Spaces are replaced with underscores.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentCategories": {
+      "description": "Document category option",
+      "type": "object",
+      "properties": {
+        "CategoryName": {
+          "description": "Name of the classification",
+          "type": "string"
+        },
+        "CategoryDescription": {
+          "description": "Optional but recommended: Description of the classification in natural langugage",
+          "type": "string"
         }
       },
       "additionalProperties": false

@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    Document AI API
+    convertapi
 
-    Use next-generation AI to extract data, fields, insights and text from documents. Instantly.  # noqa: E501
+    Convert API lets you effortlessly convert file formats and types.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -23,9 +23,9 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from cloudmersive_documentai_api_client.configuration import Configuration
-import cloudmersive_documentai_api_client.models
-from cloudmersive_documentai_api_client import rest
+from cloudmersive_convert_api_client.configuration import Configuration
+import cloudmersive_convert_api_client.models
+from cloudmersive_convert_api_client import rest
 
 
 class ApiClient(object):
@@ -66,26 +66,18 @@ class ApiClient(object):
             configuration = Configuration()
         self.configuration = configuration
 
-        # Use the pool property to lazily initialize the ThreadPool.
-        self._pool = None
+        self.pool = ThreadPool()
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/3.0.1/python'
+        self.user_agent = 'Swagger-Codegen/1.1.7/python'
 
     def __del__(self):
-        if self._pool is not None:
-            self._pool.close()
-            self._pool.join()
-
-    @property
-    def pool(self):
-        if self._pool is None:
-            self._pool = ThreadPool()
-        return self._pool
+        self.pool.close()
+        self.pool.join()
 
     @property
     def user_agent(self):
@@ -255,12 +247,12 @@ class ApiClient(object):
 
         if type(klass) == str:
             if klass.startswith('list['):
-                sub_kls = re.match(r'list\[(.*)\]', klass).group(1)
+                sub_kls = re.match('list\[(.*)\]', klass).group(1)
                 return [self.__deserialize(sub_data, sub_kls)
                         for sub_data in data]
 
             if klass.startswith('dict('):
-                sub_kls = re.match(r'dict\(([^,]*), (.*)\)', klass).group(2)
+                sub_kls = re.match('dict\(([^,]*), (.*)\)', klass).group(2)
                 return {k: self.__deserialize(v, sub_kls)
                         for k, v in six.iteritems(data)}
 
@@ -268,7 +260,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(cloudmersive_documentai_api_client.models, klass)
+                klass = getattr(cloudmersive_convert_api_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
@@ -284,12 +276,12 @@ class ApiClient(object):
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
                  body=None, post_params=None, files=None,
-                 response_type=None, auth_settings=None, async_req=None,
+                 response_type=None, auth_settings=None, async=None,
                  _return_http_data_only=None, collection_formats=None,
                  _preload_content=True, _request_timeout=None):
         """Makes the HTTP request (synchronous) and returns deserialized data.
 
-        To make an async request, set the async_req parameter.
+        To make an async request, set the async parameter.
 
         :param resource_path: Path to method endpoint.
         :param method: Method to call.
@@ -304,7 +296,7 @@ class ApiClient(object):
         :param response: Response data type.
         :param files dict: key -> filename, value -> filepath,
             for `multipart/form-data`.
-        :param async_req bool: execute request asynchronously
+        :param async bool: execute request asynchronously
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param collection_formats: dict of collection formats for path, query,
@@ -317,13 +309,13 @@ class ApiClient(object):
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
         :return:
-            If async_req parameter is True,
+            If async parameter is True,
             the request will be called asynchronously.
             The method will return the request thread.
-            If parameter async_req is False or missing,
+            If parameter async is False or missing,
             then the method will return the response directly.
         """
-        if not async_req:
+        if not async:
             return self.__call_api(resource_path, method,
                                    path_params, query_params, header_params,
                                    body, post_params, files,
@@ -551,7 +543,7 @@ class ApiClient(object):
         try:
             return klass(data)
         except UnicodeEncodeError:
-            return six.text_type(data)
+            return six.u(data)
         except TypeError:
             return data
 
@@ -601,9 +593,6 @@ class ApiClient(object):
                 )
             )
 
-    def __hasattr(self, object, name):
-        return name in object.__class__.__dict__
-
     def __deserialize_model(self, data, klass):
         """Deserializes list or dict to model.
 
@@ -612,8 +601,8 @@ class ApiClient(object):
         :return: model object.
         """
 
-        if (not klass.swagger_types and
-                not self.__hasattr(klass, 'get_real_child_model')):
+        if not klass.swagger_types and not hasattr(klass,
+                                                   'get_real_child_model'):
             return data
 
         kwargs = {}
@@ -627,13 +616,7 @@ class ApiClient(object):
 
         instance = klass(**kwargs)
 
-        if (isinstance(instance, dict) and
-                klass.swagger_types is not None and
-                isinstance(data, dict)):
-            for key, value in data.items():
-                if key not in klass.swagger_types:
-                    instance[key] = value
-        if self.__hasattr(instance, 'get_real_child_model'):
+        if hasattr(instance, 'get_real_child_model'):
             klass_name = instance.get_real_child_model(data)
             if klass_name:
                 instance = self.__deserialize(data, klass_name)
