@@ -13,7 +13,7 @@
           "Analyze"
         ],
         "summary": "Enforce Policies to a Document to allow or block it using Advanced AI",
-        "description": "Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ApplyRules",
         "consumes": [
           "application/json",
@@ -51,7 +51,7 @@
           "Extract"
         ],
         "summary": "Extract Text from a Document using AI",
-        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.",
         "operationId": "ExtractText",
         "consumes": [
           "multipart/form-data"
@@ -91,7 +91,7 @@
           "Extract"
         ],
         "summary": "Extract Field Values from a Document using AI",
-        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractFields",
         "consumes": [
           "multipart/form-data"
@@ -137,7 +137,7 @@
           "Extract"
         ],
         "summary": "Extract Field Values from a Document using Advanced AI",
-        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractFieldsAdvanced",
         "consumes": [
           "application/json",
@@ -169,7 +169,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ExtractFieldsResponse"
+              "$ref": "#/definitions/ExtractFieldsAdvancedResponse"
             }
           }
         }
@@ -181,7 +181,7 @@
           "Extract"
         ],
         "summary": "Extract Tables of Data from a Document using AI",
-        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.",
         "operationId": "ExtractTables",
         "consumes": [
           "multipart/form-data"
@@ -221,7 +221,7 @@
           "Extract"
         ],
         "summary": "Extract Barcodes of from a Document using AI",
-        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractBarcodes",
         "consumes": [
           "multipart/form-data"
@@ -261,7 +261,7 @@
           "Extract"
         ],
         "summary": "Extract All Fields and Tables of Data from a Document using AI",
-        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractAllFieldsAndTables",
         "consumes": [
           "multipart/form-data"
@@ -301,7 +301,7 @@
           "Extract"
         ],
         "summary": "Extract Classification or Category from a Document using AI",
-        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractClassification",
         "consumes": [
           "multipart/form-data"
@@ -347,7 +347,7 @@
           "Extract"
         ],
         "summary": "Extract Classification or Category from a Document using Advanced AI",
-        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractClassificationAdvanced",
         "consumes": [
           "application/json",
@@ -391,7 +391,7 @@
           "Extract"
         ],
         "summary": "Extract Summary from a Document using AI",
-        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
         "operationId": "ExtractSummary",
         "consumes": [
           "multipart/form-data"
@@ -431,7 +431,7 @@
           "RunBatchJob"
         ],
         "summary": "Extract Text from a Document using AI as a Batch Job",
-        "description": "Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Requires Managed Instance or Private Cloud deployment.",
         "operationId": "ExtractTextFromDocumentBatchJob",
         "consumes": [
           "multipart/form-data"
@@ -471,7 +471,7 @@
           "RunBatchJob"
         ],
         "summary": "Extract Field Values from a Document using Advanced AI as a Batch Job",
-        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.",
         "operationId": "ExtractFieldsFromDocumentAdvancedBatchJob",
         "consumes": [
           "application/json",
@@ -514,7 +514,7 @@
           "RunBatchJob"
         ],
         "summary": "Extract All Fields and Tables of Data from a Document using AI as a Batch Job",
-        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.",
         "operationId": "ExtractAllFieldsAndTablesFromDocumentBatchJob",
         "consumes": [
           "multipart/form-data"
@@ -554,7 +554,7 @@
           "RunBatchJob"
         ],
         "summary": "Extract Classification or Category from a Document using AI as a Batch Job",
-        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.",
+        "description": "Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.",
         "operationId": "ExtractClassificationFromDocumentBatchJob",
         "consumes": [
           "multipart/form-data"
@@ -670,6 +670,14 @@
           "format": "int32",
           "description": "Optional: Limit the number of pages processed",
           "type": "integer"
+        },
+        "Preprocessing": {
+          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.",
+          "type": "string"
+        },
+        "ResultCrossCheck": {
+          "description": "Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.",
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -829,6 +837,24 @@
       },
       "additionalProperties": false
     },
+    "ExtractFieldsAdvancedResponse": {
+      "description": "Result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if successful, false otherwise",
+          "type": "boolean"
+        },
+        "Results": {
+          "description": "Field value results from the extraction operation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldAdvancedValue"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "ExtractFieldsAndTablesResponse": {
       "description": "Result of extracting fields from a document",
       "type": "object",
@@ -934,6 +960,21 @@
         },
         "TextResult": {
           "description": "Text content of the page",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FieldAdvancedValue": {
+      "description": "Field value result of extracting fields from a document",
+      "type": "object",
+      "properties": {
+        "FieldName": {
+          "description": "Name of the field (note that spaces will be replaced with underscore)",
+          "type": "string"
+        },
+        "FieldStringValue": {
+          "description": "String value of the field that was extractged from the document",
           "type": "string"
         }
       },

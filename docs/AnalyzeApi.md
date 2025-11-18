@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Enforce Policies to a Document to allow or block it using Advanced AI
 
-Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python

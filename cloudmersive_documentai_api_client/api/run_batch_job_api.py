@@ -36,7 +36,7 @@ class RunBatchJobApi(object):
     def extract_all_fields_and_tables_from_document_batch_job(self, **kwargs):  # noqa: E501
         """Extract All Fields and Tables of Data from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_all_fields_and_tables_from_document_batch_job(async_req=True)
@@ -59,7 +59,7 @@ class RunBatchJobApi(object):
     def extract_all_fields_and_tables_from_document_batch_job_with_http_info(self, **kwargs):  # noqa: E501
         """Extract All Fields and Tables of Data from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_all_fields_and_tables_from_document_batch_job_with_http_info(async_req=True)
@@ -135,7 +135,7 @@ class RunBatchJobApi(object):
     def extract_classification_from_document_batch_job(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification_from_document_batch_job(async_req=True)
@@ -159,7 +159,7 @@ class RunBatchJobApi(object):
     def extract_classification_from_document_batch_job_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification_from_document_batch_job_with_http_info(async_req=True)
@@ -238,7 +238,7 @@ class RunBatchJobApi(object):
     def extract_fields_from_document_advanced_batch_job(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using Advanced AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields_from_document_advanced_batch_job(async_req=True)
@@ -261,7 +261,7 @@ class RunBatchJobApi(object):
     def extract_fields_from_document_advanced_batch_job_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using Advanced AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields_from_document_advanced_batch_job_with_http_info(async_req=True)
@@ -337,7 +337,7 @@ class RunBatchJobApi(object):
     def extract_text_from_document_batch_job(self, **kwargs):  # noqa: E501
         """Extract Text from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_text_from_document_batch_job(async_req=True)
@@ -360,7 +360,7 @@ class RunBatchJobApi(object):
     def extract_text_from_document_batch_job_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Text from a Document using AI as a Batch Job  # noqa: E501
 
-        Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  # noqa: E501
+        Creates an async batch job for processing a large document as an AI batch job.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Requires Managed Instance or Private Cloud deployment.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_text_from_document_batch_job_with_http_info(async_req=True)

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Extract All Fields and Tables of Data from a Document using AI
 
-Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Extract Barcodes of from a Document using AI
 
-Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 Extract Classification or Category from a Document using AI
 
-Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 Extract Classification or Category from a Document using Advanced AI
 
-Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 Extract Field Values from a Document using AI
 
-Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -300,11 +300,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_fields_advanced**
-> ExtractFieldsResponse extract_fields_advanced(recognition_mode=recognition_mode, body=body)
+> ExtractFieldsAdvancedResponse extract_fields_advanced(recognition_mode=recognition_mode, body=body)
 
 Extract Field Values from a Document using Advanced AI
 
-Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExtractFieldsResponse**](ExtractFieldsResponse.md)
+[**ExtractFieldsAdvancedResponse**](ExtractFieldsAdvancedResponse.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 Extract Summary from a Document using AI
 
-Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.
 
 ### Example
 ```python
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 Extract Tables of Data from a Document using AI
 
-Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.
+Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.
 
 ### Example
 ```python
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 Extract Text from a Document using AI
 
-Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.
+Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.
 
 ### Example
 ```python

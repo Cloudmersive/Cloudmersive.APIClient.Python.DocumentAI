@@ -4,7 +4,7 @@ Use next-generation AI to extract data, fields, insights and text from documents
 This Python package provides a native API client for [Cloudmersive Document AI API](https://cloudmersive.com/document-ai-api)
 
 - API version: v1
-- Package version: 3.0.2
+- Package version: 3.0.3
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -105,12 +105,14 @@ Class | Method | HTTP request | Description
  - [ExtractBarcodesAiResponse](docs/ExtractBarcodesAiResponse.md)
  - [ExtractDocumentBatchJobResult](docs/ExtractDocumentBatchJobResult.md)
  - [ExtractDocumentJobStatusResult](docs/ExtractDocumentJobStatusResult.md)
+ - [ExtractFieldsAdvancedResponse](docs/ExtractFieldsAdvancedResponse.md)
  - [ExtractFieldsAndTablesResponse](docs/ExtractFieldsAndTablesResponse.md)
  - [ExtractFieldsResponse](docs/ExtractFieldsResponse.md)
  - [ExtractTablesResponse](docs/ExtractTablesResponse.md)
  - [ExtractTextResponse](docs/ExtractTextResponse.md)
  - [ExtractedBarcodeItem](docs/ExtractedBarcodeItem.md)
  - [ExtractedTextPage](docs/ExtractedTextPage.md)
+ - [FieldAdvancedValue](docs/FieldAdvancedValue.md)
  - [FieldToExtract](docs/FieldToExtract.md)
  - [FieldValue](docs/FieldValue.md)
  - [PolicyRule](docs/PolicyRule.md)

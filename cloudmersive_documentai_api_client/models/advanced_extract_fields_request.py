@@ -33,21 +33,27 @@ class AdvancedExtractFieldsRequest(object):
     swagger_types = {
         'input_file': 'str',
         'fields_to_extract': 'list[FieldToExtract]',
-        'maximum_pages_processed': 'int'
+        'maximum_pages_processed': 'int',
+        'preprocessing': 'str',
+        'result_cross_check': 'str'
     }
 
     attribute_map = {
         'input_file': 'InputFile',
         'fields_to_extract': 'FieldsToExtract',
-        'maximum_pages_processed': 'MaximumPagesProcessed'
+        'maximum_pages_processed': 'MaximumPagesProcessed',
+        'preprocessing': 'Preprocessing',
+        'result_cross_check': 'ResultCrossCheck'
     }
 
-    def __init__(self, input_file=None, fields_to_extract=None, maximum_pages_processed=None):  # noqa: E501
+    def __init__(self, input_file=None, fields_to_extract=None, maximum_pages_processed=None, preprocessing=None, result_cross_check=None):  # noqa: E501
         """AdvancedExtractFieldsRequest - a model defined in Swagger"""  # noqa: E501
 
         self._input_file = None
         self._fields_to_extract = None
         self._maximum_pages_processed = None
+        self._preprocessing = None
+        self._result_cross_check = None
         self.discriminator = None
 
         if input_file is not None:
@@ -56,6 +62,10 @@ class AdvancedExtractFieldsRequest(object):
             self.fields_to_extract = fields_to_extract
         if maximum_pages_processed is not None:
             self.maximum_pages_processed = maximum_pages_processed
+        if preprocessing is not None:
+            self.preprocessing = preprocessing
+        if result_cross_check is not None:
+            self.result_cross_check = result_cross_check
 
     @property
     def input_file(self):
@@ -127,6 +137,52 @@ class AdvancedExtractFieldsRequest(object):
         """
 
         self._maximum_pages_processed = maximum_pages_processed
+
+    @property
+    def preprocessing(self):
+        """Gets the preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
+
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.  # noqa: E501
+
+        :return: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._preprocessing
+
+    @preprocessing.setter
+    def preprocessing(self, preprocessing):
+        """Sets the preprocessing of this AdvancedExtractFieldsRequest.
+
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.  # noqa: E501
+
+        :param preprocessing: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._preprocessing = preprocessing
+
+    @property
+    def result_cross_check(self):
+        """Gets the result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
+
+        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.  # noqa: E501
+
+        :return: The result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._result_cross_check
+
+    @result_cross_check.setter
+    def result_cross_check(self, result_cross_check):
+        """Sets the result_cross_check of this AdvancedExtractFieldsRequest.
+
+        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.  # noqa: E501
+
+        :param result_cross_check: The result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._result_cross_check = result_cross_check
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,7 +36,7 @@ class AnalyzeApi(object):
     def apply_rules(self, **kwargs):  # noqa: E501
         """Enforce Policies to a Document to allow or block it using Advanced AI  # noqa: E501
 
-        Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_rules(async_req=True)
@@ -58,7 +58,7 @@ class AnalyzeApi(object):
     def apply_rules_with_http_info(self, **kwargs):  # noqa: E501
         """Enforce Policies to a Document to allow or block it using Advanced AI  # noqa: E501
 
-        Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Enforce Policies to a Document to allow or block it using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.apply_rules_with_http_info(async_req=True)

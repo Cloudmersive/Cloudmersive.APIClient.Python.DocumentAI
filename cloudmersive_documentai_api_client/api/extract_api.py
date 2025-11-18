@@ -36,7 +36,7 @@ class ExtractApi(object):
     def extract_all_fields_and_tables(self, **kwargs):  # noqa: E501
         """Extract All Fields and Tables of Data from a Document using AI  # noqa: E501
 
-        Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_all_fields_and_tables(async_req=True)
@@ -59,7 +59,7 @@ class ExtractApi(object):
     def extract_all_fields_and_tables_with_http_info(self, **kwargs):  # noqa: E501
         """Extract All Fields and Tables of Data from a Document using AI  # noqa: E501
 
-        Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_all_fields_and_tables_with_http_info(async_req=True)
@@ -135,7 +135,7 @@ class ExtractApi(object):
     def extract_barcodes(self, **kwargs):  # noqa: E501
         """Extract Barcodes of from a Document using AI  # noqa: E501
 
-        Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_barcodes(async_req=True)
@@ -158,7 +158,7 @@ class ExtractApi(object):
     def extract_barcodes_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Barcodes of from a Document using AI  # noqa: E501
 
-        Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_barcodes_with_http_info(async_req=True)
@@ -234,7 +234,7 @@ class ExtractApi(object):
     def extract_classification(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using AI  # noqa: E501
 
-        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification(async_req=True)
@@ -258,7 +258,7 @@ class ExtractApi(object):
     def extract_classification_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using AI  # noqa: E501
 
-        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification_with_http_info(async_req=True)
@@ -337,7 +337,7 @@ class ExtractApi(object):
     def extract_classification_advanced(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using Advanced AI  # noqa: E501
 
-        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification_advanced(async_req=True)
@@ -360,7 +360,7 @@ class ExtractApi(object):
     def extract_classification_advanced_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Classification or Category from a Document using Advanced AI  # noqa: E501
 
-        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_classification_advanced_with_http_info(async_req=True)
@@ -436,7 +436,7 @@ class ExtractApi(object):
     def extract_fields(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using AI  # noqa: E501
 
-        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields(async_req=True)
@@ -460,7 +460,7 @@ class ExtractApi(object):
     def extract_fields_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using AI  # noqa: E501
 
-        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields_with_http_info(async_req=True)
@@ -539,7 +539,7 @@ class ExtractApi(object):
     def extract_fields_advanced(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using Advanced AI  # noqa: E501
 
-        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields_advanced(async_req=True)
@@ -548,7 +548,7 @@ class ExtractApi(object):
         :param async_req bool
         :param str recognition_mode: Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images
         :param AdvancedExtractFieldsRequest body: Input request, including document file as byte array, and information on which fields to extract
-        :return: ExtractFieldsResponse
+        :return: ExtractFieldsAdvancedResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -562,7 +562,7 @@ class ExtractApi(object):
     def extract_fields_advanced_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Field Values from a Document using Advanced AI  # noqa: E501
 
-        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_fields_advanced_with_http_info(async_req=True)
@@ -571,7 +571,7 @@ class ExtractApi(object):
         :param async_req bool
         :param str recognition_mode: Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images
         :param AdvancedExtractFieldsRequest body: Input request, including document file as byte array, and information on which fields to extract
-        :return: ExtractFieldsResponse
+        :return: ExtractFieldsAdvancedResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -627,7 +627,7 @@ class ExtractApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ExtractFieldsResponse',  # noqa: E501
+            response_type='ExtractFieldsAdvancedResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -638,7 +638,7 @@ class ExtractApi(object):
     def extract_summary(self, **kwargs):  # noqa: E501
         """Extract Summary from a Document using AI  # noqa: E501
 
-        Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_summary(async_req=True)
@@ -661,7 +661,7 @@ class ExtractApi(object):
     def extract_summary_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Summary from a Document using AI  # noqa: E501
 
-        Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_summary_with_http_info(async_req=True)
@@ -737,7 +737,7 @@ class ExtractApi(object):
     def extract_tables(self, **kwargs):  # noqa: E501
         """Extract Tables of Data from a Document using AI  # noqa: E501
 
-        Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_tables(async_req=True)
@@ -760,7 +760,7 @@ class ExtractApi(object):
     def extract_tables_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Tables of Data from a Document using AI  # noqa: E501
 
-        Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  # noqa: E501
+        Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_tables_with_http_info(async_req=True)
@@ -836,7 +836,7 @@ class ExtractApi(object):
     def extract_text(self, **kwargs):  # noqa: E501
         """Extract Text from a Document using AI  # noqa: E501
 
-        Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  # noqa: E501
+        Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_text(async_req=True)
@@ -859,7 +859,7 @@ class ExtractApi(object):
     def extract_text_with_http_info(self, **kwargs):  # noqa: E501
         """Extract Text from a Document using AI  # noqa: E501
 
-        Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  # noqa: E501
+        Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.extract_text_with_http_info(async_req=True)
