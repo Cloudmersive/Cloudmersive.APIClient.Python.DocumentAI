@@ -672,7 +672,7 @@
           "type": "integer"
         },
         "Preprocessing": {
-          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.",
+          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.",
           "type": "string"
         },
         "ResultCrossCheck": {
@@ -851,6 +851,11 @@
           "items": {
             "$ref": "#/definitions/FieldAdvancedValue"
           }
+        },
+        "ConfidenceScore": {
+          "format": "double",
+          "description": "Confidence score between 0.0 and 1.0, where values > 0.8 indicate high confidence",
+          "type": "number"
         }
       },
       "additionalProperties": false

@@ -142,7 +142,7 @@ class AdvancedExtractFieldsRequest(object):
     def preprocessing(self):
         """Gets the preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
 
-        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.  # noqa: E501
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
 
         :return: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
         :rtype: str
@@ -153,7 +153,7 @@ class AdvancedExtractFieldsRequest(object):
     def preprocessing(self, preprocessing):
         """Sets the preprocessing of this AdvancedExtractFieldsRequest.
 
-        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' and 'None'.  Default is Auto.  # noqa: E501
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
 
         :param preprocessing: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
         :type: str

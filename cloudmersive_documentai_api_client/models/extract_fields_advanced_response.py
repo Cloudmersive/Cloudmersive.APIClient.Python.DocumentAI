@@ -32,25 +32,30 @@ class ExtractFieldsAdvancedResponse(object):
     """
     swagger_types = {
         'successful': 'bool',
-        'results': 'list[FieldAdvancedValue]'
+        'results': 'list[FieldAdvancedValue]',
+        'confidence_score': 'float'
     }
 
     attribute_map = {
         'successful': 'Successful',
-        'results': 'Results'
+        'results': 'Results',
+        'confidence_score': 'ConfidenceScore'
     }
 
-    def __init__(self, successful=None, results=None):  # noqa: E501
+    def __init__(self, successful=None, results=None, confidence_score=None):  # noqa: E501
         """ExtractFieldsAdvancedResponse - a model defined in Swagger"""  # noqa: E501
 
         self._successful = None
         self._results = None
+        self._confidence_score = None
         self.discriminator = None
 
         if successful is not None:
             self.successful = successful
         if results is not None:
             self.results = results
+        if confidence_score is not None:
+            self.confidence_score = confidence_score
 
     @property
     def successful(self):
@@ -97,6 +102,29 @@ class ExtractFieldsAdvancedResponse(object):
         """
 
         self._results = results
+
+    @property
+    def confidence_score(self):
+        """Gets the confidence_score of this ExtractFieldsAdvancedResponse.  # noqa: E501
+
+        Confidence score between 0.0 and 1.0, where values > 0.8 indicate high confidence  # noqa: E501
+
+        :return: The confidence_score of this ExtractFieldsAdvancedResponse.  # noqa: E501
+        :rtype: float
+        """
+        return self._confidence_score
+
+    @confidence_score.setter
+    def confidence_score(self, confidence_score):
+        """Sets the confidence_score of this ExtractFieldsAdvancedResponse.
+
+        Confidence score between 0.0 and 1.0, where values > 0.8 indicate high confidence  # noqa: E501
+
+        :param confidence_score: The confidence_score of this ExtractFieldsAdvancedResponse.  # noqa: E501
+        :type: float
+        """
+
+        self._confidence_score = confidence_score
 
     def to_dict(self):
         """Returns the model properties as a dict"""
