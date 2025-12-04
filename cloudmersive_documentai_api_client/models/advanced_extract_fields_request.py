@@ -35,7 +35,8 @@ class AdvancedExtractFieldsRequest(object):
         'fields_to_extract': 'list[FieldToExtract]',
         'maximum_pages_processed': 'int',
         'preprocessing': 'str',
-        'result_cross_check': 'str'
+        'result_cross_check': 'str',
+        'rotate_image_degrees': 'float'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class AdvancedExtractFieldsRequest(object):
         'fields_to_extract': 'FieldsToExtract',
         'maximum_pages_processed': 'MaximumPagesProcessed',
         'preprocessing': 'Preprocessing',
-        'result_cross_check': 'ResultCrossCheck'
+        'result_cross_check': 'ResultCrossCheck',
+        'rotate_image_degrees': 'RotateImageDegrees'
     }
 
-    def __init__(self, input_file=None, fields_to_extract=None, maximum_pages_processed=None, preprocessing=None, result_cross_check=None):  # noqa: E501
+    def __init__(self, input_file=None, fields_to_extract=None, maximum_pages_processed=None, preprocessing=None, result_cross_check=None, rotate_image_degrees=None):  # noqa: E501
         """AdvancedExtractFieldsRequest - a model defined in Swagger"""  # noqa: E501
 
         self._input_file = None
@@ -54,6 +56,7 @@ class AdvancedExtractFieldsRequest(object):
         self._maximum_pages_processed = None
         self._preprocessing = None
         self._result_cross_check = None
+        self._rotate_image_degrees = None
         self.discriminator = None
 
         if input_file is not None:
@@ -66,6 +69,8 @@ class AdvancedExtractFieldsRequest(object):
             self.preprocessing = preprocessing
         if result_cross_check is not None:
             self.result_cross_check = result_cross_check
+        if rotate_image_degrees is not None:
+            self.rotate_image_degrees = rotate_image_degrees
 
     @property
     def input_file(self):
@@ -142,7 +147,7 @@ class AdvancedExtractFieldsRequest(object):
     def preprocessing(self):
         """Gets the preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
 
-        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'ContrastEdges', 'ContrastEdgesPlus', 'Invert', 'Binarize', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
 
         :return: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
         :rtype: str
@@ -153,7 +158,7 @@ class AdvancedExtractFieldsRequest(object):
     def preprocessing(self, preprocessing):
         """Sets the preprocessing of this AdvancedExtractFieldsRequest.
 
-        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
+        Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'ContrastEdges', 'ContrastEdgesPlus', 'Invert', 'Binarize', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability.  # noqa: E501
 
         :param preprocessing: The preprocessing of this AdvancedExtractFieldsRequest.  # noqa: E501
         :type: str
@@ -165,7 +170,7 @@ class AdvancedExtractFieldsRequest(object):
     def result_cross_check(self):
         """Gets the result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
 
-        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.  # noqa: E501
+        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None', 'Advanced' and 'Ultra'.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times.  # noqa: E501
 
         :return: The result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
         :rtype: str
@@ -176,13 +181,36 @@ class AdvancedExtractFieldsRequest(object):
     def result_cross_check(self, result_cross_check):
         """Sets the result_cross_check of this AdvancedExtractFieldsRequest.
 
-        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.  # noqa: E501
+        Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None', 'Advanced' and 'Ultra'.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times.  # noqa: E501
 
         :param result_cross_check: The result_cross_check of this AdvancedExtractFieldsRequest.  # noqa: E501
         :type: str
         """
 
         self._result_cross_check = result_cross_check
+
+    @property
+    def rotate_image_degrees(self):
+        """Gets the rotate_image_degrees of this AdvancedExtractFieldsRequest.  # noqa: E501
+
+        Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.  # noqa: E501
+
+        :return: The rotate_image_degrees of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :rtype: float
+        """
+        return self._rotate_image_degrees
+
+    @rotate_image_degrees.setter
+    def rotate_image_degrees(self, rotate_image_degrees):
+        """Sets the rotate_image_degrees of this AdvancedExtractFieldsRequest.
+
+        Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.  # noqa: E501
+
+        :param rotate_image_degrees: The rotate_image_degrees of this AdvancedExtractFieldsRequest.  # noqa: E501
+        :type: float
+        """
+
+        self._rotate_image_degrees = rotate_image_degrees
 
     def to_dict(self):
         """Returns the model properties as a dict"""

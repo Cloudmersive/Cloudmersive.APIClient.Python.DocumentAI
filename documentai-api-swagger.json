@@ -1,4 +1,4 @@
-﻿{
+{
   "swagger": "2.0",
   "info": {
     "title": "Document AI API",
@@ -642,10 +642,23 @@
             "$ref": "#/definitions/DocumentCategories"
           }
         },
+        "Preprocessing": {
+          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.",
+          "type": "string"
+        },
+        "ResultCrossCheck": {
+          "description": "Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None', 'Advanced', 'Ultra' and 'Hyper'.  Default is None.  Ultra and Hyper will produce the highest accuracy but at the cost of longer processing times.",
+          "type": "string"
+        },
         "MaximumPagesProcessed": {
           "format": "int32",
           "description": "Optional: Limit the number of pages processed",
           "type": "integer"
+        },
+        "RotateImageDegrees": {
+          "format": "double",
+          "description": "Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.",
+          "type": "number"
         }
       },
       "additionalProperties": false
@@ -672,12 +685,17 @@
           "type": "integer"
         },
         "Preprocessing": {
-          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to Compatability for maximum PDF feature compatability.",
+          "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto', 'SmoothEdges', 'SmoothEdgesPlus', 'ContrastEdges', 'ContrastEdgesPlus', 'Invert', 'Binarize', 'Compatability' and 'None'.  Default is Auto.  Set to SmoothEdges to smooth harsh edges in the input image to enhance recognition accuracy.  Set to SmoothEdgesPlus to smooth harsh edges to a higher degree.  Set to ContrastEdges and ContrastEdgesPlus to enhance contrast and readability for low quality black and white or grayscale images.  Set to Invert to invert the input image.  Set to Binarize to binarize the input image.  Set to Compatability for maximum PDF feature compatability.",
           "type": "string"
         },
         "ResultCrossCheck": {
-          "description": "Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None' and 'Advanced'.  Default is None.",
+          "description": "Optional: Set the level of output accuracy cross-checking to perform on the input.  Possible values are 'None', 'Advanced' and 'Ultra'.  Default is None.  Ultra will produce the highest accuracy but at the cost of longer processing times.",
           "type": "string"
+        },
+        "RotateImageDegrees": {
+          "format": "double",
+          "description": "Optional: Rotate the input image before recognition by the specified number of degrees; valid values range from -360 to +360.",
+          "type": "number"
         }
       },
       "additionalProperties": false
@@ -693,6 +711,11 @@
         "DocumentCategoryResult": {
           "description": "Category applied to the document; if a category could not be identified then \"other\" will be used.  Spaces are replaced with underscores.",
           "type": "string"
+        },
+        "ConfidenceScore": {
+          "format": "double",
+          "description": "Confidence score between 0.0 and 1.0, where values > 0.8 indicate high confidence",
+          "type": "number"
         }
       },
       "additionalProperties": false
@@ -1138,4 +1161,3 @@
     }
   ]
 }
-
