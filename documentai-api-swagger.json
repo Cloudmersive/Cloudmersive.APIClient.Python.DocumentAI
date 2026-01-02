@@ -1,4 +1,4 @@
-{
+﻿{
   "swagger": "2.0",
   "info": {
     "title": "Document AI API",
@@ -51,7 +51,7 @@
           "Extract"
         ],
         "summary": "Extract Text from a Document using AI",
-        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Supports a wide range of languages.  Consumes 100 API calls per page.",
+        "description": "Extract raw text from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Supports a wide range of languages.  Consumes 100 API calls per page.",
         "operationId": "ExtractText",
         "consumes": [
           "multipart/form-data"
@@ -91,7 +91,7 @@
           "Extract"
         ],
         "summary": "Extract Field Values from a Document using AI",
-        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractFields",
         "consumes": [
           "multipart/form-data"
@@ -137,7 +137,7 @@
           "Extract"
         ],
         "summary": "Extract Field Values from a Document using Advanced AI",
-        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract Field Values (e.g. Invoice Number, Invoice Date, Business Card Phone Number, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractFieldsAdvanced",
         "consumes": [
           "application/json",
@@ -181,7 +181,7 @@
           "Extract"
         ],
         "summary": "Extract Tables of Data from a Document using AI",
-        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumeds 100 API calls per page.",
+        "description": "Extract Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumeds 100 API calls per page.",
         "operationId": "ExtractTables",
         "consumes": [
           "multipart/form-data"
@@ -221,7 +221,7 @@
           "Extract"
         ],
         "summary": "Extract Barcodes of from a Document using AI",
-        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract all barcodes from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG, HEIC and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractBarcodes",
         "consumes": [
           "multipart/form-data"
@@ -261,7 +261,7 @@
           "Extract"
         ],
         "summary": "Extract All Fields and Tables of Data from a Document using AI",
-        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract all Fields and Tables, comprised of rows and columns of data, from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractAllFieldsAndTables",
         "consumes": [
           "multipart/form-data"
@@ -276,6 +276,12 @@
             "in": "header",
             "name": "recognitionMode",
             "description": "Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "preprocessing",
+            "description": "Optional: Set the level of image pre-processing to enhance accuracy.  Possible values are 'Auto' (default), 'Paged', and 'Compatability'.  Use 'Paged' to treat each page as a separate document for extraction (requires Advanced recognitionMode).  Default is Auto.",
             "type": "string"
           },
           {
@@ -301,7 +307,7 @@
           "Extract"
         ],
         "summary": "Extract Classification or Category from a Document using AI",
-        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractClassification",
         "consumes": [
           "multipart/form-data"
@@ -347,7 +353,7 @@
           "Extract"
         ],
         "summary": "Extract Classification or Category from a Document using Advanced AI",
-        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Extract Classification or Category (e.g. Invoice, Receipt, Tax Form, or Form 1040, Form 1040 EZ, etc.) from a document using Advanced AI.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractClassificationAdvanced",
         "consumes": [
           "application/json",
@@ -391,7 +397,7 @@
           "Extract"
         ],
         "summary": "Extract Summary from a Document using AI",
-        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "description": "Creates a 1 paragraph summary of the input document using Artificial Intelligence.  Input document formats supported include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.  Consumes 100 API calls per page.",
         "operationId": "ExtractSummary",
         "consumes": [
           "multipart/form-data"
@@ -1040,8 +1046,15 @@
           "type": "string"
         },
         "FieldStringValue": {
-          "description": "String value of the field that was extractged from the document",
+          "description": "Primary or first string value of the field that was extractged from the document",
           "type": "string"
+        },
+        "AdditionalFieldStringValues": {
+          "description": "Additional values for this field when the same field is present with multiple values, for example, if two instances of the same form occur in the same document",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "additionalProperties": false
@@ -1161,3 +1174,4 @@
     }
   ]
 }
+

@@ -32,25 +32,30 @@ class FieldValue(object):
     """
     swagger_types = {
         'field_name': 'str',
-        'field_string_value': 'str'
+        'field_string_value': 'str',
+        'additional_field_string_values': 'list[str]'
     }
 
     attribute_map = {
         'field_name': 'FieldName',
-        'field_string_value': 'FieldStringValue'
+        'field_string_value': 'FieldStringValue',
+        'additional_field_string_values': 'AdditionalFieldStringValues'
     }
 
-    def __init__(self, field_name=None, field_string_value=None):  # noqa: E501
+    def __init__(self, field_name=None, field_string_value=None, additional_field_string_values=None):  # noqa: E501
         """FieldValue - a model defined in Swagger"""  # noqa: E501
 
         self._field_name = None
         self._field_string_value = None
+        self._additional_field_string_values = None
         self.discriminator = None
 
         if field_name is not None:
             self.field_name = field_name
         if field_string_value is not None:
             self.field_string_value = field_string_value
+        if additional_field_string_values is not None:
+            self.additional_field_string_values = additional_field_string_values
 
     @property
     def field_name(self):
@@ -79,7 +84,7 @@ class FieldValue(object):
     def field_string_value(self):
         """Gets the field_string_value of this FieldValue.  # noqa: E501
 
-        String value of the field that was extractged from the document  # noqa: E501
+        Primary or first string value of the field that was extractged from the document  # noqa: E501
 
         :return: The field_string_value of this FieldValue.  # noqa: E501
         :rtype: str
@@ -90,13 +95,36 @@ class FieldValue(object):
     def field_string_value(self, field_string_value):
         """Sets the field_string_value of this FieldValue.
 
-        String value of the field that was extractged from the document  # noqa: E501
+        Primary or first string value of the field that was extractged from the document  # noqa: E501
 
         :param field_string_value: The field_string_value of this FieldValue.  # noqa: E501
         :type: str
         """
 
         self._field_string_value = field_string_value
+
+    @property
+    def additional_field_string_values(self):
+        """Gets the additional_field_string_values of this FieldValue.  # noqa: E501
+
+        Additional values for this field when the same field is present with multiple values, for example, if two instances of the same form occur in the same document  # noqa: E501
+
+        :return: The additional_field_string_values of this FieldValue.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._additional_field_string_values
+
+    @additional_field_string_values.setter
+    def additional_field_string_values(self, additional_field_string_values):
+        """Sets the additional_field_string_values of this FieldValue.
+
+        Additional values for this field when the same field is present with multiple values, for example, if two instances of the same form occur in the same document  # noqa: E501
+
+        :param additional_field_string_values: The additional_field_string_values of this FieldValue.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._additional_field_string_values = additional_field_string_values
 
     def to_dict(self):
         """Returns the model properties as a dict"""
