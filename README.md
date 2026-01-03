@@ -4,7 +4,7 @@ Use next-generation AI to extract data, fields, insights and text from documents
 This Python package provides a native API client for [Cloudmersive Document AI API](https://cloudmersive.com/document-ai-api)
 
 - API version: v1
-- Package version: 3.0.6
+- Package version: 3.0.7
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -59,14 +59,14 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_documentai_api_client.AnalyzeApi(cloudmersive_documentai_api_client.ApiClient(configuration))
-body = cloudmersive_documentai_api_client.DocumentPolicyRequest() # DocumentPolicyRequest | Input request, including document and policy rules (optional)
+body = cloudmersive_documentai_api_client.DocumentQuestionsRequest() # DocumentQuestionsRequest | Input request, including document and questions (optional)
 
 try:
-    # Enforce Policies to a Document to allow or block it using Advanced AI
-    api_response = api_instance.apply_rules(body=body)
+    # Answer Questions about a Document in a structured way using Advanced AI
+    api_response = api_instance.answer_questions(body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AnalyzeApi->apply_rules: %s\n" % e)
+    print("Exception when calling AnalyzeApi->answer_questions: %s\n" % e)
 
 ```
 
@@ -76,6 +76,7 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnalyzeApi* | [**answer_questions**](docs/AnalyzeApi.md#answer_questions) | **POST** /document-ai/document/analyze/answer-questions | Answer Questions about a Document in a structured way using Advanced AI
 *AnalyzeApi* | [**apply_rules**](docs/AnalyzeApi.md#apply_rules) | **POST** /document-ai/document/analyze/enforce-policy | Enforce Policies to a Document to allow or block it using Advanced AI
 *ExtractApi* | [**extract_all_fields_and_tables**](docs/ExtractApi.md#extract_all_fields_and_tables) | **POST** /document-ai/document/extract/all | Extract All Fields and Tables of Data from a Document using AI
 *ExtractApi* | [**extract_barcodes**](docs/ExtractApi.md#extract_barcodes) | **POST** /document-ai/document/extract/barcodes | Extract Barcodes of from a Document using AI
@@ -102,6 +103,13 @@ Class | Method | HTTP request | Description
  - [DocumentClassificationResult](docs/DocumentClassificationResult.md)
  - [DocumentPolicyRequest](docs/DocumentPolicyRequest.md)
  - [DocumentPolicyResult](docs/DocumentPolicyResult.md)
+ - [DocumentQuestionAnswerItem](docs/DocumentQuestionAnswerItem.md)
+ - [DocumentQuestionAnswersResult](docs/DocumentQuestionAnswersResult.md)
+ - [DocumentQuestionBoolean](docs/DocumentQuestionBoolean.md)
+ - [DocumentQuestionChoiceItem](docs/DocumentQuestionChoiceItem.md)
+ - [DocumentQuestionFreeResponse](docs/DocumentQuestionFreeResponse.md)
+ - [DocumentQuestionMultipleChoice](docs/DocumentQuestionMultipleChoice.md)
+ - [DocumentQuestionsRequest](docs/DocumentQuestionsRequest.md)
  - [ExtractBarcodesAiResponse](docs/ExtractBarcodesAiResponse.md)
  - [ExtractDocumentBatchJobResult](docs/ExtractDocumentBatchJobResult.md)
  - [ExtractDocumentJobStatusResult](docs/ExtractDocumentJobStatusResult.md)

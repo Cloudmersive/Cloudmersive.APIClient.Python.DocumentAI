@@ -32,25 +32,30 @@ class DocumentPolicyRequest(object):
     """
     swagger_types = {
         'input_file': 'str',
-        'rules': 'list[PolicyRule]'
+        'rules': 'list[PolicyRule]',
+        'recognition_mode': 'str'
     }
 
     attribute_map = {
         'input_file': 'InputFile',
-        'rules': 'Rules'
+        'rules': 'Rules',
+        'recognition_mode': 'RecognitionMode'
     }
 
-    def __init__(self, input_file=None, rules=None):  # noqa: E501
+    def __init__(self, input_file=None, rules=None, recognition_mode=None):  # noqa: E501
         """DocumentPolicyRequest - a model defined in Swagger"""  # noqa: E501
 
         self._input_file = None
         self._rules = None
+        self._recognition_mode = None
         self.discriminator = None
 
         if input_file is not None:
             self.input_file = input_file
         if rules is not None:
             self.rules = rules
+        if recognition_mode is not None:
+            self.recognition_mode = recognition_mode
 
     @property
     def input_file(self):
@@ -99,6 +104,29 @@ class DocumentPolicyRequest(object):
         """
 
         self._rules = rules
+
+    @property
+    def recognition_mode(self):
+        """Gets the recognition_mode of this DocumentPolicyRequest.  # noqa: E501
+
+        Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images  # noqa: E501
+
+        :return: The recognition_mode of this DocumentPolicyRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._recognition_mode
+
+    @recognition_mode.setter
+    def recognition_mode(self, recognition_mode):
+        """Sets the recognition_mode of this DocumentPolicyRequest.
+
+        Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images  # noqa: E501
+
+        :param recognition_mode: The recognition_mode of this DocumentPolicyRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._recognition_mode = recognition_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

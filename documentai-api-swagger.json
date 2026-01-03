@@ -45,6 +45,44 @@
         }
       }
     },
+    "/document-ai/document/analyze/answer-questions": {
+      "post": {
+        "tags": [
+          "Analyze"
+        ],
+        "summary": "Answer Questions about a Document in a structured way using Advanced AI",
+        "description": "Answer boolean (yes/no), multiple-choice and free-response questions about the contents of a document using Advanced AI.  Input document formats supported include DOCX, PDF, PNG and JPG.  Consumes 100 API calls per page.",
+        "operationId": "AnswerQuestions",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Input request, including document and questions",
+            "schema": {
+              "$ref": "#/definitions/DocumentQuestionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DocumentQuestionAnswersResult"
+            }
+          }
+        }
+      }
+    },
     "/document-ai/document/extract/text": {
       "post": {
         "tags": [
@@ -771,6 +809,10 @@
           "items": {
             "$ref": "#/definitions/PolicyRule"
           }
+        },
+        "RecognitionMode": {
+          "description": "Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+          "type": "string"
         }
       },
       "additionalProperties": false
@@ -794,6 +836,155 @@
           "items": {
             "$ref": "#/definitions/PolicyRuleViolation"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionAnswerItem": {
+      "description": "Answer to an input question",
+      "type": "object",
+      "properties": {
+        "QuestionId": {
+          "description": "ID of the input question",
+          "type": "string"
+        },
+        "AnswerValue": {
+          "description": "Answer response value, formatted as a string, for this question.  Boolean questions will return YES or NO.",
+          "type": "string"
+        },
+        "AnswerRationale": {
+          "description": "Rationale explaining why this answer was given",
+          "type": "string"
+        },
+        "ConfidenceScore": {
+          "format": "double",
+          "description": "Confidence score between 0.0 and 1.0 where values above 0.8 indicate high confidence",
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionAnswersResult": {
+      "description": "Result of performing a document question answering operation",
+      "type": "object",
+      "properties": {
+        "Successful": {
+          "description": "True if the operation was completed successfully, or false otherwise",
+          "type": "boolean"
+        },
+        "ConfidenceScore": {
+          "format": "double",
+          "description": "Confidence score between 0.0 and 1.0 where values above 0.8 indicate high confidence",
+          "type": "number"
+        },
+        "AnswerResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentQuestionAnswerItem"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionBoolean": {
+      "description": "Boolean document question",
+      "type": "object",
+      "properties": {
+        "QuestionId": {
+          "description": "Unique ID of the question, e.g. 1 or 2A",
+          "type": "string"
+        },
+        "QuestionText": {
+          "description": "Question in natural language to ask of the document where the answer resolves to YES or NO, e.g. 'Is this document signed and countersigned by both parties?'",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionChoiceItem": {
+      "description": "Possible response choice for a multiple-choice question",
+      "type": "object",
+      "properties": {
+        "ChoiceId": {
+          "description": "Unique ID of the response choice, e.g. 3C",
+          "type": "string"
+        },
+        "ChoiceText": {
+          "description": "Description text of this choice, e.g. 'Delaware'",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionFreeResponse": {
+      "description": "Free response question",
+      "type": "object",
+      "properties": {
+        "QuestionId": {
+          "description": "Unique ID of the question, e.g. 7 or 5A",
+          "type": "string"
+        },
+        "QuestionText": {
+          "description": "Question in natural language to ask of the document where the answer resolves to a free response, e.g. 'Who is the counterparty in this agreement?'",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionMultipleChoice": {
+      "description": "Multiple choice question",
+      "type": "object",
+      "properties": {
+        "QuestionId": {
+          "description": "Unique ID of the question, e.g. 1 or 2A",
+          "type": "string"
+        },
+        "QuestionText": {
+          "description": "Question in natural language to ask of the document where the answer resolves to one of a fixed number of provided choices, e.g. 'What is the governing law of this agreement?'",
+          "type": "string"
+        },
+        "ResponseChoices": {
+          "description": "Possible response choices for the multiple-choice question",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentQuestionChoiceItem"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentQuestionsRequest": {
+      "type": "object",
+      "properties": {
+        "InputFile": {
+          "format": "byte",
+          "description": "Input file as a byte array",
+          "type": "string"
+        },
+        "QuestionsYesNo": {
+          "description": "Optional: Yes or No boolean questions to answer about the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentQuestionBoolean"
+          }
+        },
+        "QuestionsMultipleChoice": {
+          "description": "Optional: Multiple choice questions to answer about the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentQuestionMultipleChoice"
+          }
+        },
+        "QuestionsFreeResponse": {
+          "description": "Optional: Free response questions to answer about the document",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentQuestionFreeResponse"
+          }
+        },
+        "RecognitionMode": {
+          "description": "Optional; Recognition mode - Normal (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images",
+          "type": "string"
         }
       },
       "additionalProperties": false
