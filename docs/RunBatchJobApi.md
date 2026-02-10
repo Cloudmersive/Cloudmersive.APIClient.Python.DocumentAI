@@ -1,6 +1,6 @@
 # cloudmersive_documentai_api_client.RunBatchJobApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -149,7 +149,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudmersive_documentai_api_client.RunBatchJobApi(cloudmersive_documentai_api_client.ApiClient(configuration))
 recognition_mode = 'recognition_mode_example' # str | Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images (optional)
-body = cloudmersive_documentai_api_client.AdvancedExtractFieldsRequest() # AdvancedExtractFieldsRequest |  (optional)
+body = cloudmersive_documentai_api_client.AdvancedExtractFieldsRequest() # AdvancedExtractFieldsRequest | Input document and parameters (optional)
 
 try:
     # Extract Field Values from a Document using Advanced AI as a Batch Job
@@ -164,7 +164,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **recognition_mode** | **str**| Optional; Recognition mode - Advanced (default) provides the highest accuracy but slower speed, while Normal provides faster response but lower accuracy for low quality images | [optional] 
- **body** | [**AdvancedExtractFieldsRequest**](AdvancedExtractFieldsRequest.md)|  | [optional] 
+ **body** | [**AdvancedExtractFieldsRequest**](AdvancedExtractFieldsRequest.md)| Input document and parameters | [optional] 
 
 ### Return type
 
@@ -260,7 +260,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_documentai_api_client.RunBatchJobApi(cloudmersive_documentai_api_client.ApiClient(configuration))
-async_job_id = 'async_job_id_example' # str |  (optional)
+async_job_id = 'async_job_id_example' # str | Job ID for the batch job to get the status of (optional)
 
 try:
     # Get the status and result of an Extract Document Batch Job
@@ -274,7 +274,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **async_job_id** | **str**|  | [optional] 
+ **async_job_id** | **str**| Job ID for the batch job to get the status of | [optional] 
 
 ### Return type
 

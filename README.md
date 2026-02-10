@@ -1,11 +1,12 @@
 # cloudmersive_documentai_api_client
-Use next-generation AI to extract data, fields, insights and text from documents. Instantly.
+Extract structured data including named fields, tables, barcodes, classifications, and summaries from common document formats, scanned documents, and photos of documents using AI.  Also supports handwriting and low quality photos and scans, as well as digital document input.  Supports a wide range of languages, and is able to analyze and infer semantic structure from the visual layout for documents.
 
 This Python package provides a native API client for [Cloudmersive Document AI API](https://cloudmersive.com/document-ai-api)
 
 - API version: v1
-- Package version: 3.0.7
+- Package version: 3.1.0
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
+For more information, please visit [https://www.cloudmersive.com](https://www.cloudmersive.com)
 
 ## Requirements.
 
@@ -72,7 +73,7 @@ except ApiException as e:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -84,6 +85,7 @@ Class | Method | HTTP request | Description
 *ExtractApi* | [**extract_classification_advanced**](docs/ExtractApi.md#extract_classification_advanced) | **POST** /document-ai/document/extract/classify/advanced | Extract Classification or Category from a Document using Advanced AI
 *ExtractApi* | [**extract_fields**](docs/ExtractApi.md#extract_fields) | **POST** /document-ai/document/extract/fields | Extract Field Values from a Document using AI
 *ExtractApi* | [**extract_fields_advanced**](docs/ExtractApi.md#extract_fields_advanced) | **POST** /document-ai/document/extract/fields/advanced | Extract Field Values from a Document using Advanced AI
+*ExtractApi* | [**extract_split**](docs/ExtractApi.md#extract_split) | **POST** /document-ai/document/extract/split | Intelligently Split a Combined Document into Sub-Documents using AI
 *ExtractApi* | [**extract_summary**](docs/ExtractApi.md#extract_summary) | **POST** /document-ai/document/extract/summary | Extract Summary from a Document using AI
 *ExtractApi* | [**extract_tables**](docs/ExtractApi.md#extract_tables) | **POST** /document-ai/document/extract/tables | Extract Tables of Data from a Document using AI
 *ExtractApi* | [**extract_text**](docs/ExtractApi.md#extract_text) | **POST** /document-ai/document/extract/text | Extract Text from a Document using AI
@@ -125,6 +127,8 @@ Class | Method | HTTP request | Description
  - [FieldValue](docs/FieldValue.md)
  - [PolicyRule](docs/PolicyRule.md)
  - [PolicyRuleViolation](docs/PolicyRuleViolation.md)
+ - [SplitDocumentResponse](docs/SplitDocumentResponse.md)
+ - [SubDocument](docs/SubDocument.md)
  - [SummarizeDocumentResponse](docs/SummarizeDocumentResponse.md)
  - [TableResult](docs/TableResult.md)
  - [TableResultCell](docs/TableResultCell.md)
@@ -143,5 +147,5 @@ Class | Method | HTTP request | Description
 
 ## Author
 
-
+support@cloudmersive.com
 
