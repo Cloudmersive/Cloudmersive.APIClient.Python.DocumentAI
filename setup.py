@@ -3,7 +3,7 @@
 """
     Document AI API
 
-    Extract structured data including named fields, tables, barcodes, classifications, and summaries from common document formats, scanned documents, and photos of documents using AI.  Also supports handwriting and low quality photos and scans, as well as digital document input.  Supports a wide range of languages, and is able to analyze and infer semantic structure from the visual layout for documents.  # noqa: E501
+    
 
     OpenAPI spec version: v1
     Contact: support@cloudmersive.com
@@ -45,6 +45,6 @@ setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type='text/markdown'
-    Extract structured data including named fields, tables, barcodes, classifications, and summaries from common document formats, scanned documents, and photos of documents using AI.  Also supports handwriting and low quality photos and scans, as well as digital document input.  Supports a wide range of languages, and is able to analyze and infer semantic structure from the visual layout for documents.  # noqa: E501
+    
 
 )
